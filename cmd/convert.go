@@ -129,7 +129,7 @@ func unmarshal(inputFormat string, input *[]byte) *namecheap.ApiResponse {
 	return inputMarshalled
 }
 
-// marshal is marshalling namecheap.ApiResponse to the specified format
+// marshal is marshaling namecheap.ApiResponse to the specified format
 func marshal(format string, apiresponse *namecheap.ApiResponse) *[]byte {
 	var (
 		output []byte
@@ -159,12 +159,12 @@ func writeOutput(cmd *cobra.Command, output *[]byte) {
 	if len(outputFileName) > 0 {
 		destination, err := os.Create(outputFileName)
 		if err != nil {
-			log.Fatal("Failed to create file '%s' because: %s", outputFileName, err)
+			log.Fatalf("Failed to create file '%s' because: %s", outputFileName, err)
 		}
 		defer destination.Close()
 
 		if _, err := destination.Write(*output); err != nil {
-			log.Fatal("Failed to write to file '%s' because: %s", outputFileName, err)
+			log.Fatalf("Failed to write to file '%s' because: %s", outputFileName, err)
 		}
 	} else {
 		fmt.Printf("%s\n", *output)

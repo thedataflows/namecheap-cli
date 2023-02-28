@@ -19,7 +19,7 @@ type requestParameters struct {
 	username string
 	tld      string
 	sld      string
-	clientIp string
+	clientIP string
 }
 
 const (
@@ -46,7 +46,7 @@ var (
 				configOpts.EnvPrefix,
 				configOpts.EnvPrefix,
 			)
-			cmd.Help()
+			_ = cmd.Help()
 		},
 	}
 
@@ -68,7 +68,7 @@ func setCommonParameters(cmd *cobra.Command) *requestParameters {
 		username: config.ViperGetString(cmd, keyCommonUsername),
 		sld:      config.ViperGetString(cmd, keyCommonSld),
 		tld:      config.ViperGetString(cmd, keyCommonTld),
-		clientIp: config.ViperGetString(cmd, keyCommonClientIp),
+		clientIP: config.ViperGetString(cmd, keyCommonClientIp),
 	}
 }
 

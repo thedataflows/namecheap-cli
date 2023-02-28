@@ -6,7 +6,7 @@ package cmd
 import (
 	"encoding/xml"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"time"
 
@@ -87,7 +87,7 @@ func download(cmd *cobra.Command, timeout time.Duration) *namecheap.ApiResponse 
 		parentReqParams.username,
 		parentReqParams.sld,
 		parentReqParams.tld,
-		parentReqParams.clientIp,
+		parentReqParams.clientIP,
 		"getHosts",
 	)
 	log.Debug(url)
@@ -108,7 +108,7 @@ func download(cmd *cobra.Command, timeout time.Duration) *namecheap.ApiResponse 
 	defer resp.Body.Close()
 
 	// read
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatalf("Error reading body: %v", err)
 	}

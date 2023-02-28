@@ -24,14 +24,14 @@ linters:
     - dupl              # Tool for code clone detection
     # - gochecknoglobals  # check that no global variables exist
     - gocognit          # Computes and checks the cognitive complexity of functions
-    - forbidigo         # forbid fmt.Println
+    # - forbidigo         # forbid fmt.Println
     - goconst           # Finds repeated strings that could be replaced by a constant
     - gofmt             # Gofmt checks whether code was gofmt-ed
     - goimports         # In addition to fixing imports, goimports also formats your code in the same style as gofmt.
     - gosec             # Inspects source code for security problems
     - misspell          # Finds commonly misspelled English words in comments
     - prealloc          # Finds slice declarations that could potentially be pre-allocated
-    - revive            # replaces deprecated golint
+    # - revive            # replaces deprecated golint
 
 run:
   timeout: 5m

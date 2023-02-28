@@ -7,7 +7,7 @@ import (
 	"bytes"
 	"encoding/xml"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strings"
 	"time"
@@ -102,7 +102,7 @@ func upload(cmd *cobra.Command, input *namecheap.ApiResponse, timeout time.Durat
 		parentReqParams.username,
 		parentReqParams.sld,
 		parentReqParams.tld,
-		parentReqParams.clientIp,
+		parentReqParams.clientIP,
 		"setHosts",
 	)
 	log.Debug(url)
@@ -138,7 +138,7 @@ func upload(cmd *cobra.Command, input *namecheap.ApiResponse, timeout time.Durat
 	}
 	defer resp.Body.Close()
 
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatalf("Error reading body: %v", err)
 	}
