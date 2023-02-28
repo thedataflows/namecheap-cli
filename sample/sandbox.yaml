@@ -1,0 +1,40 @@
+# log-level: debug
+# log-format: json
+
+get:
+  key: &key mysecretapikeythatshouldbeprovidedviaenvforsecurity
+  username: &username mynamecheapuser
+  sld: &sld example
+  tld: &tld com
+  sandbox: &sandbox true
+  ## Path is relative to the namecheap-cli binary, not this config
+  output-file: sample/example.com.json
+  output-format: json
+
+set:
+  key: *key
+  username: *username
+  ## sld.tld can also be read from the input file
+  # sld: *sld
+  # tld: *tld
+  sandbox: *sandbox
+  input-file: sample/example.com.xml
+
+setone:
+  key: *key
+  username: *username
+  sld: *sld
+  tld: *tld
+  sandbox: *sandbox
+  # name: "@"
+  # type: A
+  # address: "3.3.3.3"
+
+convert:
+  input-file: sample/example.com.xml
+  input-format: xml
+  output-file: sample/example.com.yaml
+  output-format: yaml
+  ## Optional override output sld.tld
+  # sld: *sld
+  # tld: *tld

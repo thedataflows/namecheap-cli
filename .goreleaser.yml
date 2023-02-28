@@ -1,0 +1,31 @@
+project_name: namecheap-cli
+archives:
+  - strip_parent_binary_folder: true
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - README.md
+    name_template: "{{ .ProjectName }}_{{ .Tag }}_{{ .Os }}_{{ .Arch }}"
+builds:
+  - env:
+      - CGO_ENABLED=0
+      - GO111MODULE=on
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+    flags:
+      - -mod=readonly
+    ldflags:
+      - -s
+      - -w
+      - -X=github.com/thedataflows/{{ .ProjectName }}/cmd.version={{.Tag}}
+    main: main.go
+checksum:
+  name_template: "sha256sums.txt"
+  algorithm: sha256
+snapshot:
+  name_template: "{{ .Tag }}-next"
