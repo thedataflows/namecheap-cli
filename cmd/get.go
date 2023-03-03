@@ -130,6 +130,7 @@ func download(cmd *cobra.Command, timeout time.Duration) *namecheap.ApiResponse 
 	}
 
 	log.Debugf("Raw response: \n%s", string(body))
+	log.Infof("Success. Execution time: %s", response.ExecutionTime)
 
 	return response
 }
