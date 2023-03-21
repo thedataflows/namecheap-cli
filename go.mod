@@ -1,10 +1,10 @@
 module github.com/thedataflows/namecheap-cli
 
-go 1.19
+go 1.20
 
 require (
 	github.com/spf13/cobra v1.6.1
-	github.com/thedataflows/go-commons v1.0.0
+	github.com/thedataflows/go-commons v1.2.1
 	gopkg.in/yaml.v3 v3.0.1
 	k8s.io/utils v0.0.0-20230209194617-a36077c30491
 )
